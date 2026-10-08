@@ -1,0 +1,31 @@
+train.py:51: DeprecationWarning: `np.float` is a deprecated alias for the builtin `float`. To silence this warning, use `float` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.float64` here.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  run.log("Regularization Strength:", np.float(args.C))
+train.py:52: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  run.log("Max iterations:", np.int(args.max_iter))
+Attempted to log scalar metric Regularization Strength::
+1.0
+Attempted to log scalar metric Max iterations::
+100
+Traceback (most recent call last):
+  File "train.py", line 76, in <module>
+    main()
+  File "train.py", line 60, in main
+    ds  = TabularDatasetFactory.from_delimited_files(path = 'data/bank-additional/bank-additional.csv', separator = ';')
+  File "/home/vicente/miniconda3/envs/azureml-v1/lib/python3.8/site-packages/azureml/data/_loggerfactory.py", line 140, in wrapper
+    return func(*args, **kwargs)
+  File "/home/vicente/miniconda3/envs/azureml-v1/lib/python3.8/site-packages/azureml/data/dataset_factory.py", line 338, in from_delimited_files
+    path = _validate_and_normalize_path(path)
+  File "/home/vicente/miniconda3/envs/azureml-v1/lib/python3.8/site-packages/azureml/data/dataset_factory.py", line 1148, in _validate_and_normalize_path
+    raise invalid_path_error
+azureml.exceptions._azureml_exception.UserErrorException: UserErrorException:
+	Message: Invalid argument type for `path`. It can be single value or a list of: string starting with "http://" or "https://", `azureml.data.datapath.DataPath` object, or tuple of `azureml.core.Datastore` object and string for relative path in the datastore.Url of blob can't contains SAS token, please use datastore instead.
+	InnerException None
+	ErrorResponse 
+{
+    "error": {
+        "code": "UserError",
+        "message": "Invalid argument type for `path`. It can be single value or a list of: string starting with \"http://\" or \"https://\", `azureml.data.datapath.DataPath` object, or tuple of `azureml.core.Datastore` object and string for relative path in the datastore.Url of blob can't contains SAS token, please use datastore instead."
+    }
+}
